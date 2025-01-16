@@ -260,6 +260,7 @@ def sparse_quantize(
             raise ValueError("Not supported type for quantization_size.")
     else:
         discrete_coordinates = _auto_floor(coordinates)
+        # discrete_coordinates = coordinates # If you meet the torch.floor error in MinkowskiEngine, use this
 
     if isinstance(coordinates, np.ndarray):
         discrete_coordinates = discrete_coordinates.astype(np.int32)
